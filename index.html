@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather — Final Project</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <main class="app">
+    <header class="top">
+      <div>
+        <h1>Weather</h1>
+        <p class="sub">Real-time + 3-day view (click a day for hourly)</p>
+      </div>
+      <div class="badge" id="updatedBadge">—</div>
+    </header>
+
+    <section class="card">
+      <div class="searchRow">
+        <div class="searchBox">
+          <input id="cityInput" type="text" placeholder="Search city… (e.g., Ulaanbaatar)"
+                 autocomplete="off" />
+          <div class="suggest" id="suggestBox" role="listbox" aria-label="City suggestions"></div>
+        </div>
+        <button id="searchBtn">Search</button>
+        <button class="ghost" id="geoBtn" title="Use my location">Use GPS</button>
+      </div>
+
+      <div class="now" id="nowBlock" hidden>
+        <div class="nowLeft">
+          <div class="place" id="placeName">—</div>
+          <div class="desc" id="weatherDesc">—</div>
+          <div class="meta" id="metaLine">—</div>
+        </div>
+        <div class="nowRight">
+          <div class="temp" id="tempNow">—</div>
+          <img id="iconNow" alt="" class="icon" />
+        </div>
+      </div>
+
+      <div class="grid2" id="cardsGrid" hidden>
+        <div class="mini">
+          <div class="k">Feels like</div>
+          <div class="v" id="feelsLike">—</div>
+        </div>
+        <div class="mini">
+          <div class="k">Humidity</div>
+          <div class="v" id="humidity">—</div>
+        </div>
+        <div class="mini">
+          <div class="k">Wind</div>
+          <div class="v" id="wind">—</div>
+        </div>
+        <div class="mini">
+          <div class="k">Pressure</div>
+          <div class="v" id="pressure">—</div>
+        </div>
+      </div>
+
+      <div class="sectionTitle">
+        <h2>3-day overview</h2>
+        <p>Click a day to see hourly temperatures.</p>
+      </div>
+
+      <div class="tableWrap" id="dayTableWrap" hidden>
+        <table class="t" id="dayTable">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Min</th>
+              <th>Max</th>
+              <th>Condition</th>
+            </tr>
+          </thead>
+          <tbody id="dayRows"></tbody>
+        </table>
+      </div>
+
+      <div class="sectionTitle" id="hourlyTitle" hidden>
+        <h2 id="hourlyHeading">Hourly</h2>
+        <p id="hourlySub">—</p>
+      </div>
+
+      <div class="hourly" id="hourlyGrid" hidden></div>
+
+      <div class="note" id="yesterdayNote" hidden>
+        “Yesterday” is shown as last 24 hours unless you enable a historical/timemachine endpoint on your OpenWeather plan.
+      </div>
+
+      <div class="error" id="err" hidden></div>
+    </section>
+
+    <footer class="foot">
+      <span>Data: OpenWeather</span>
+      <span class="dot">•</span>
+      <span>Built with HTML/CSS/JS</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
